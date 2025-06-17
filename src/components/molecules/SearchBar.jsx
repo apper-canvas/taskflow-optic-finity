@@ -4,7 +4,7 @@ import ApperIcon from '@/components/ApperIcon';
 import Input from '@/components/atoms/Input';
 
 const SearchBar = ({ 
-  onSearch, 
+  onSearch = () => {}, // Default no-op function to prevent errors
   placeholder = 'Search tasks...', 
   className = '' 
 }) => {
@@ -12,18 +12,23 @@ const SearchBar = ({
   const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
-    const debounceTimer = setTimeout(() => {
-      onSearch(query);
-    }, 300);
+    // Only call onSearch if it's a valid function
+    if (typeof onSearch === 'function') {
+      const debounceTimer = setTimeout(() => {
+        onSearch(query);
+      }, 300);
 
-    return () => clearTimeout(debounceTimer);
+      return () => clearTimeout(debounceTimer);
+    }
   }, [query, onSearch]);
 
   const handleClear = () => {
     setQuery('');
-    onSearch('');
+    // Safe function call with validation
+    if (typeof onSearch === 'function') {
+      onSearch('');
+    }
   };
-
   return (
     <motion.div
       animate={{ width: isExpanded ? '100%' : 'auto' }}
