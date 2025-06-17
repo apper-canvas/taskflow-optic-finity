@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import ApperIcon from '@/components/ApperIcon';
+import React from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import ApperIcon from '@/components/ApperIcon'
 
 const Checkbox = ({
   checked = false,
