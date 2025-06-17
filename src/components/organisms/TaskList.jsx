@@ -58,8 +58,8 @@ const TaskList = ({ searchQuery = '', activeView = 'list' }) => {
     }
 
     // Category filter
-    if (filters.categoryId) {
-      filtered = filtered.filter(task => task.categoryId === filters.categoryId);
+if (filters.categoryId) {
+      filtered = filtered.filter(task => task.category_id?.toString() === filters.categoryId);
     }
 
     // Priority filter
@@ -145,8 +145,8 @@ const TaskList = ({ searchQuery = '', activeView = 'list' }) => {
     });
   };
 
-  const getCategoryById = (categoryId) => {
-    return categories.find(cat => cat.Id.toString() === categoryId);
+const getCategoryById = (categoryId) => {
+    return categories.find(cat => cat.Id?.toString() === categoryId?.toString());
   };
 
   if (loading) {
@@ -252,9 +252,9 @@ const TaskList = ({ searchQuery = '', activeView = 'list' }) => {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ delay: index * 0.05 }}
               >
-                <TaskCard
+<TaskCard
                   task={task}
-                  category={getCategoryById(task.categoryId)}
+                  category={getCategoryById(task.category_id)}
                   onToggleComplete={handleToggleComplete}
                   onEdit={handleEditTask}
                   onDelete={handleDeleteTask}

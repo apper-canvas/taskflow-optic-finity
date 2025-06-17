@@ -27,9 +27,10 @@ const CategorySidebar = ({ onClose }) => {
       ]);
 
       // Update task counts for categories
-      const categoriesWithCounts = categoriesData.map(category => ({
+const categoriesWithCounts = categoriesData.map(category => ({
         ...category,
-        taskCount: tasksData.filter(task => task.categoryId === category.Id.toString()).length
+        taskCount: tasksData.filter(task => task.category_id?.toString() === category.Id?.toString()).length,
+        name: category.Name || category.name
       }));
 
       setCategories(categoriesWithCounts);

@@ -66,7 +66,7 @@ const QuickAddModal = ({ isOpen, onClose }) => {
     if (!validateForm()) return;
 
     setLoading(true);
-    try {
+try {
       await taskService.create({
         ...formData,
         dueDate: formData.dueDate ? new Date(formData.dueDate).toISOString() : null
@@ -75,8 +75,11 @@ const QuickAddModal = ({ isOpen, onClose }) => {
       toast.success('Task created successfully!');
       onClose();
       resetForm();
+      // Trigger refresh of task list
+      window.location.reload();
     } catch (err) {
-      toast.error('Failed to create task');
+      console.error('Error creating task:', err);
+      toast.error(err.message || 'Failed to create task');
     } finally {
       setLoading(false);
     }
