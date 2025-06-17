@@ -1,0 +1,37 @@
+[
+  {
+    "Id": 1,
+    "name": "Business",
+    "color": "#5B21B6",
+    "icon": "Briefcase",
+    "taskCount": 1
+  },
+  {
+    "Id": 2,
+    "name": "Work",
+    "color": "#3B82F6",
+    "icon": "Laptop",
+    "taskCount": 3
+  },
+  {
+    "Id": 3,
+    "name": "Personal",
+    "color": "#10B981",
+    "icon": "User",
+    "taskCount": 1
+  },
+  {
+    "Id": 4,
+    "name": "Health",
+    "color": "#EF4444",
+    "icon": "Heart",
+    "taskCount": 0
+  },
+  {
+    "Id": 5,
+    "name": "Shopping",
+    "color": "#F59E0B",
+    "icon": "ShoppingCart",
+    "taskCount": 0
+  }
+]
